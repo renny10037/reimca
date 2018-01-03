@@ -1,0 +1,68 @@
+!!!
+%html{:lang => "en"}
+  %head
+    = render 'app/layouts/head'
+    
+%body
+  %header#main
+    .button-burger
+      #burguer.hamburger.hamburger--spin
+        .hamburger-box
+          .hamburger-inner
+    %nav#menu.menu
+      .frame-menu
+        %ul
+          %li
+            = link_to root_path do
+              %span.item-link inicio
+          %li
+            = link_to app_about_path + '#about-v'  do
+              %span.item-link nosotros
+          %li
+            = link_to root_path + '#service' do
+              %span.item-link productos y servicios
+          %li
+            = link_to app_tank_path do
+              %span.item-link tanques
+          %li
+            = link_to app_projects_path do
+              %span.item-link experiencia
+          %li
+            = link_to root_path  + '#customers' do
+              %span.item-link clientes
+          %li
+            = link_to app_electricity_path + '#contact-us-services' do
+              %span.item-link contáctanos
+          %li
+            = link_to root_path + '#maps' do
+              %span.item-link ubícanos
+
+%section#cover-service
+  #electricidad-cover.box-cover
+    .mask-cover
+      #title-service-v Electricidad
+  .main
+    .box-burger
+
+%section#services-v
+  .container-fluid.fix
+    .wallpapers-service
+      .patron-services
+    .container
+      .row
+        .col-lg-6
+          .box-service-image
+            .box-image-service
+              = image_tag 'img/05.jpg', class: 'img-responsive'
+        .col-lg-6
+          .title
+            %p#description-services-v Montaje de líneas de alta y media tensión, construcción y adecuación de subestaciones.
+          #box-services-v
+            %p.information-services-v REIMCA, por ser su área de inicio, ha desarrollado importante experiencia en la ejecución de obras como: Montaje de líneas de alta y media tensión, construcción y adecuación de subestaciones, reinstrumentación de plantas, mantenimiento Eléctrico General en Refinería, obras de montaje de Fibra Óptica, desarrollo de proyectos de electrificación de Complejos Urbanísticos, entre otras.
+            %p.information-services-v Esta experiencia le ha permitido a la organización especializar su Recurso Humano y dotarse de una infraestructura en equipos propios del área que le permite afrentar cualquier tipo de obra en relación.
+
+%section#contact-us-services
+  = render "app/front/contacto_reimca"
+
+%footer#footer
+  = render "app/front/footer_reimca"

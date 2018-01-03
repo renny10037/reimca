@@ -1,0 +1,60 @@
+.listing-show-header
+	.actions
+		- if can? :update, Work
+			= link_to edit_admin_work_path(@work), class: "btn-floating waves-effect waves-light btn-flat tooltipped", "data-position" => "bottom", "data-tooltip" => t("keppler.actions.edit") do
+				= material_icon.md_24.create
+	%h5
+		= material_icon.md_24.account_circle.css_class("md-light")
+		= t("keppler.models.singularize.#{controller_name.singularize}")
+.listing-show-body.card{ resize: true , style: "height: {{windowHeight}}px;" }
+	.card-content
+		%center.color-title= @work.title.to_s.humanize
+		%center= image_tag @work.image
+		%table.bordered
+			%tbody
+				%tr
+					%th.display-label= t("activerecord.attributes.#{controller_name.singularize}.id")
+					%td.display-value.fs-body-1.tc-black-2= @work.id
+				%tr
+					%th
+						.display-label= t("activerecord.attributes.#{controller_name.singularize}.title")
+					%td
+						.display-value.fs-body-1.tc-black-2= @work.title.blank? ? '----------' : @work.title
+				/ %tr
+				/ 	%th
+				/ 		.display-label= t("activerecord.attributes.#{controller_name.singularize}.description")
+				/ 	%td
+				/ 		.display-value.fs-body-1.tc-black-2= @work.description.blank? ? '----------' : @work.description
+				%tr
+					%th
+						.display-label= t("activerecord.attributes.#{controller_name.singularize}.stack_state_id")
+					%td
+						.display-value.fs-body-1.tc-black-2= @work.stack_state_id.blank? ? '----------' : @work.stack_state.name
+				%tr
+					%th
+						.display-label= t("activerecord.attributes.#{controller_name.singularize}.stack_city_id")
+					%td
+						.display-value.fs-body-1.tc-black-2= @work.stack_city_id.blank? ? '----------' : @work.stack_city.name
+				%tr
+					%th
+						.display-label= t("activerecord.attributes.#{controller_name.singularize}.Type Project")
+					%td
+						.display-value.fs-body-1.tc-black-2= @work.type_project_id.blank? ? '----------' : @work.type_project.name
+				%tr
+					%th
+						.display-label= t("activerecord.attributes.#{controller_name.singularize}.contractor")
+					%td
+						.display-value.fs-body-1.tc-black-2= @work.contractor.blank? ? '----------' : @work.contractor
+				%tr
+					%th
+						.display-label= t("activerecord.attributes.#{controller_name.singularize}.duration")
+					%td
+						.display-value.fs-body-1.tc-black-2= @work.duration.blank? ? '----------' : @work.duration
+		%table.bordered
+			%tbody
+				%td
+					%center
+						= link_to t('keppler.actions.back_history'), admin_works_path
+
+:javascript
+	$('.tooltipped').tooltip({delay: 1});

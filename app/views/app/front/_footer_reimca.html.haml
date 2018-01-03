@@ -1,0 +1,24 @@
+.container-fluid.fix
+	#box-footer-info
+		.container
+			.row
+				.col-xs-12.col-sm-12.col-md-12.col-lg-4
+					.box-footer-grid
+						#logo-corporation
+						#corporation
+							%span#title-corporation Representaciones e Inversiones Medina, C.A.
+				.col-xs-12.col-sm-12.col-md-12.col-lg-4
+					.box-footer-grid
+						#info-address
+							%span.title-address Ubícanos
+							#button-footer.button-o-r
+								= link_to root_path + '#maps', :class=> 'o-button -white -left', :id=> 'footer-button' do
+									%span.o-button_label ver mapa
+				.col-xs-12.col-sm-12.col-md-12.col-lg-4
+					.box-footer-grid
+						%span.title-social Síguenos
+						%iframe.lightwidget-widget{:allowtransparency => "true", :scrolling => "no", :src => "http://lightwidget.com/widgets/0f43e118fb795a13ad3cfcb7f4f5f7de.html", :style => "width: 100% !important; border: 0; overflow: hidden; height: 100% !important; position: absolute;top: 70%;transform: translateY(-60%);"}
+	#credits
+		%span#copy
+			Copyright © 2018 - Reimca.com - Todos los Derechos Reservados - Powered by
+			%a#slice{:href => "https://slicegroup.xyz", :target => "_blank"} Slice Group

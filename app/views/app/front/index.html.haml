@@ -1,0 +1,197 @@
+!!!
+%html{:lang => "en"}
+	%head
+		= render 'app/layouts/head'
+
+%body
+	%header#main
+		.button-burger
+			#burguer.hamburger.hamburger--spin
+				.hamburger-box
+					.hamburger-inner
+		%nav#menu.menu
+			.frame-menu
+				%ul
+					%li
+						= link_to root_path + '#home' do
+							%span.item-link inicio
+					%li
+						= link_to app_about_path + '#about-v'  do
+							%span.item-link nosotros
+					%li
+						= link_to root_path + '#service' do
+							%span.item-link productos y servicios
+					%li
+						= link_to root_path  + '#tank' do
+							%span.item-link tanques
+					%li
+						= link_to root_path  + '#experience' do
+							%span.item-link experiencia
+					%li
+						= link_to root_path  + '#customers' do
+							%span.item-link clientes
+					%li
+						= link_to root_path + '#contact-us' do
+							%span.item-link contáctanos
+					%li
+						= link_to root_path + '#maps' do
+							%span.item-link ubícanos
+
+%section#home
+	#box-slide
+		.single-item
+			.box-slide-item
+				%img.img-responsive{:src => "assets/img/01.jpeg"}/
+				.box-slide-mask
+					%span.title-slider Construyendo futuro
+					%span.subtitle-slider fabricamos tanques de almacenamiento de hidrocarburo A.P.I.
+			.box-slide-item
+				%img.img-responsive{:src => "assets/img/02.jpeg"}/
+				.box-slide-mask
+					%span.title-slider Construyendo futuro
+					%span.subtitle-slider mantenimiento y construcción en refinación y gas
+		.frame-button
+			#button-home.button-o-r
+				= link_to app_about_path, :class=> 'o-button -white', :id=> 'home-button' do
+					%span.o-button_label conócenos
+			.mouse
+		.box-logo
+			%img#logo{:src => "assets/img/logo.svg"}/
+	.main
+		.box-burger
+				
+%section#service
+	.title
+		%span#title-tank
+			Servicios y Productos
+			%span.point .
+		%p#description-tank Nuestras actividades están orientadas hacia al mantenimiento y ejecución de obras en las áreas.
+	.container-fluid.fix
+		.row.fix-m
+			.box-service
+				.row.fix-m
+					.grid
+						.col-xs-12.col-sm-12.col-md-12.col-lg-4.fix
+							.box-services
+								%figure#y.effect-oscar
+									.line-color.yellow-t
+									%img{:alt => "", :src => "assets/img/04.jpeg"}/
+									%figcaption
+										%h2
+											%span.service-t Metalmecánica
+										%p Desarrollamos obras de envergadura en construcción y arranque de planta
+										= link_to "#", app_metalmechanics_path 
+									.line-color.yellow-b
+						.col-xs-12.col-sm-12.col-md-12.col-lg-4.fix
+							.box-services
+								%figure#b.effect-oscar
+									.line-color.blue-t
+									%img{:alt => "", :src => "assets/img/02.jpeg"}/
+									%figcaption
+										%h2
+											%span.service-t Civil
+										%p Construimos edificaciones civiles, sub-estaciones, movimientos de tierra, pavimentación de vías y complejos urbanísticos
+										= link_to "#", app_civil_path
+									.line-color.blue-b
+						.col-xs-12.col-sm-12.col-md-12.col-lg-4.fix
+							.box-services
+								%figure#r.effect-oscar
+									.line-color.red-t
+									%img{:alt => "", :src => "assets/img/05.jpg"}/
+									%figcaption
+										%h2
+											%span.service-t Electricidad e Instrumentación
+										%p Ejecución de obras como: Montaje de líneas de alta y media tensión, construcción y adecuación de subestaciones, reinstrumentación de plantas
+										= link_to "#", app_electricity_path
+									.line-color.red-b
+%section#tank
+	.title
+		%span#title-tank
+			División de Tanques
+			%span.point .
+		%p#description-tank La división metalmecánica REIMCA está en capacidad de prestar un servicio de calidad realizado por el mejor talento.
+	.container
+		.row
+			.box-tank
+				.box-tank-back
+					#mask-tank
+				.box-tank-inf
+					#info-tank
+						%span#title-info-tank tanques geodésicos
+						%p#description-info-tank Somos Representantes de HMT en Venezuela. HMT es el líder global en soluciones para tanques de almacenamiento proporcionando un alto nivel de innovación y servicio a la industria gracias a su estudio individual de cada caso para optimizar las operaciones del tanque.
+						#button-tank.button-o-r
+							= link_to app_tank_path, :class=> 'o-button -white -left', :id=> 'home-button' do
+								%span.o-button_label ver más
+
+
+%section#experience
+	.title
+		%span#title-experience.color
+			Experiencias
+			%span.point .
+		%p#description-experience.color Mantenemos como norte el cumplimiento de las actividades, respetando la calidad en los trabajos
+	.container
+		.row
+			-count = 0
+			-@works.reverse.each do |work|
+				-count += 1
+				-if count <= 3
+					.col-xs-12.col-sm-12.col-md-12.col-lg-4
+						.card
+							= link_to app_projectdetails_path(work.id) do
+								.card-image
+									= image_tag work.image
+									%span.card-title 
+										= work.title
+									.card-content
+										%p 
+											= truncate(strip_tags(work.description), length: 180) #433 sin espacio
+			.col-xs-12.col-sm-12.col-md-12.col-lg-12
+				#box-button-card
+					#button-experiencie.button-o-r
+						= link_to app_projects_path, :class=> 'o-button -white', :id=> 'experience-button' do
+							%span.o-button_label ver más proyectos
+
+%section#customers
+	.title
+		%span#title-tank
+			Clientes
+			%span.point .
+		%p#description-tank Cuando se trata de nuestros clientes, damos nuestro mejor esfuerzo
+	#box-carousel
+		.carousel
+			.carousel-cell
+				= image_tag 'img/Hidro_Lara.png', class: 'carousel-image img-responsive'
+			.carousel-cell
+				= image_tag 'img/HMT_Tank.png', class: 'carousel-image img-responsive'
+			.carousel-cell
+				= image_tag 'img/PDVSA_Gas.png', class: 'carousel-image img-responsive'
+			.carousel-cell
+				= image_tag 'img/Siemens.png', class: 'carousel-image img-responsive'
+			.carousel-cell
+				= image_tag 'img/hidrofalcon.png', class: 'carousel-image img-responsive'
+			.carousel-cell
+				= image_tag 'img/PDVSA.png', class: 'carousel-image img-responsive'
+			.carousel-cell
+				= image_tag 'img/Tahal_Group.png', class: 'carousel-image img-responsive'
+
+%section#contact-us
+	= render "app/front/contacto_reimca"
+
+					
+%section#maps
+	.title
+		%span#title-experience
+			Encuéntranos
+			%span.point .
+		%p#description-experience Av. Intercomunal Alí Primera, Sector Las Adjuntas.
+		%p#description-experience Municipio Carirubana. Punto Fijo - Estado Falcón. Venezuela.
+	.container-fluid.fix
+		.row.fix-m
+			.col-xs-12.col-sm-12.col-md-12.col-lg-12.fix
+				#box-maps
+					#frame-GoogleMaps
+						%iframe#reimca{:allowfullscreen => "", :frameborder => "0", :height => "100%", :src => "https://www.google.com/maps/embed?pb=!1m16!1m12!1m3!1d1600.555289325435!2d-70.17847380000002!3d11.705350600000001!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!2m1!1sreimca!5e0!3m2!1ses!2sve!4v1512618192943", :style => "border:0", :width => "100%"}
+
+%footer#footer
+	= render "app/front/footer_reimca"

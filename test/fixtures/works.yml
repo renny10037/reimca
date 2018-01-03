@@ -1,0 +1,19 @@
+# Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
+
+one:
+  name: MyString
+  description: MyText
+  stack_state_id: MyString
+  stack_city_id: MyString
+  contractor: MyString
+  time: MyString
+  image: MyString
+
+two:
+  name: MyString
+  description: MyText
+  stack_state_id: MyString
+  stack_city_id: MyString
+  contractor: MyString
+  time: MyString
+  image: MyString

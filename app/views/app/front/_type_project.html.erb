@@ -1,0 +1,63 @@
+<div id="type_project">
+	<%if @type_project == nil%>
+		<%@works.each do |work|%>
+			<div class="col-lg-3 fix filter">
+				<div class="box-project">
+					<%= link_to app_projectdetails_path(work.id) do %>
+					<%= image_tag work.image %>
+						<div class="mask-project">
+							<div class="logo-project">
+				          		<%= work.contractor %>
+				 
+							</div>
+				    	    <span class="title-project">
+				        		<%= work.title %>
+				        	</span> 
+				   		</div>
+					<%end%>
+				</div>
+			</div>
+		<%end%>
+	<%else%>
+
+		<%if type_project.id == 1%>
+			<%@works.each do |work|%>
+				<div class="col-lg-3 fix filter">
+					<div class="box-project">
+						<%= link_to app_projectdetails_path do %>
+						<%= image_tag work.image %>
+							<div class="mask-project">
+								<div class="logo-project">
+					          		<%= work.contractor %>
+								</div>
+					    	    <span class="title-project">
+					        		<%= work.title %>
+					        	</span>
+					   		</div>
+						<%end%>
+					</div>
+				</div>
+			<%end%>
+		<%else%>
+			<%type_project.works.each do |work|%>
+				<div class="col-lg-3 fix filter">
+				  <div class="box-project">
+				    <%= link_to app_projectdetails_path do %>
+				      <%= image_tag work.image %>
+				      <div class="mask-project">
+				        <div class="logo-project">
+				          <%= work.contractor %>
+				          <!-- = image_tag 'img/PDVSA.png', class: 'img-responsive', id:'project-logo'
+				          -->
+				        </div>
+				        <span class="title-project">
+				          <%= work.title %>
+				        </span>
+				      </div>
+				    <% end %>
+				  </div>
+				</div>
+			<%end%>
+		<%end%>
+	<%end%>
+</div>

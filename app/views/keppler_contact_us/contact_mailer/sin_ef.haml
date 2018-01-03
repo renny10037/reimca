@@ -1,0 +1,61 @@
+!!!
+%html
+  %head
+    %meta{:content => "text/html; charset=UTF-8", "http-equiv" => "Content-Type"}
+    %link{href: "https://fonts.googleapis.com/icon?family=Material+Icons", :rel => "stylesheet"}
+    %link{href: "https://fonts.googleapis.com/css?family=Lato:300,400,700", :rel => "stylesheet"}
+    %link{href: "https://fonts.googleapis.com/css?family=Courgette", :rel => "stylesheet"}
+    :sass
+  %body
+    .container
+      %header
+        .logo.left
+          = email_image_tag("logo.png")
+        %h3.slogan.primary-color.right
+          Huellas imborrables
+      .content
+        %h3
+          Solicitud de
+          = @full_name
+        %h3
+          %strong Fecha de la solicitud:
+          = Date.today
+
+        %p
+          %strong.primary-color
+            %h2 Datos Personales
+
+        %p
+          %strong.primary-color
+            Nombre:
+          %span= @full_name
+
+        %p
+          %strong.primary-color
+            Teléfono:
+          %span= @phone
+
+        %p
+          %strong.primary-color
+            Correo:
+          %span= @email
+
+        %p
+          %strong.primary-color
+            Localidad:
+          %span
+            = "#{@city} - #{@country}"
+
+
+
+        %h2.primary-color Producto solicitado
+        %figure.primary-color
+          %figcaption= @product.title
+          = image_tag attachments[@photo].url if @photo
+          -# = email_product_image_tag(image_url(@photo_image))
+        %p
+          En la brevedad posible comunicarle al cliente el monto total de su solicitud,
+          la disponibilidad del producto y métodos de pago.
+
+      %footer
+        Babby Taso ® 2017 - Todos los derechos reservados - Desarrollado por Slice Group

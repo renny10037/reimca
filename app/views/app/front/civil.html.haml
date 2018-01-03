@@ -1,0 +1,70 @@
+!!!
+%html{:lang => "en"}
+  %head
+    = render 'app/layouts/head'
+    
+%body
+  %header#main
+    .button-burger
+      #burguer.hamburger.hamburger--spin
+        .hamburger-box
+          .hamburger-inner
+    %nav#menu.menu
+      .frame-menu
+        %ul
+          %li
+            = link_to root_path do
+              %span.item-link inicio
+          %li
+            = link_to app_about_path + '#about-v'  do
+              %span.item-link nosotros
+          %li
+            = link_to root_path + '#service' do
+              %span.item-link productos y servicios
+          %li
+            = link_to app_tank_path do
+              %span.item-link tanques
+          %li
+            = link_to app_projects_path do
+              %span.item-link experiencia
+          %li
+            = link_to root_path  + '#customers' do
+              %span.item-link clientes
+          %li
+            = link_to app_civil_path + '#contact-us-services' do
+              %span.item-link contáctanos
+          %li
+            = link_to root_path + '#maps' do
+              %span.item-link ubícanos
+
+%section#cover-service
+  #civil-cover.box-cover
+    .mask-cover
+      #title-service-v Civil
+    .main
+      .box-burger
+
+%section#services-v
+  .container-fluid.fix
+    .wallpapers-service
+      .patron-services
+    .container
+      .row
+        .col-lg-6
+          .box-service-image
+            .box-image-service
+              = image_tag 'img/cover-civil.jpg', class: 'img-responsive'
+        .col-lg-6
+          .title
+            %p#description-services-v Construimos edificaciones civiles, sub-estaciones y complejos urbanísticos.
+          #box-services-v
+            %p.information-services-v REIMCA, inicia su experiencia en el área civil con construcción de bancadas, ampliando su alcance a obras de mayor envergadura, tales como: Construcción de edificaciones civiles para sub-estaciones, movimientos de tierras, pavimentación de vías, complejos urbanísticos, complejos residenciales y mantenimiento civil de la Refinería de Amuay por mas de tres años.
+            %p.information-services-v
+              REIMCA en la actualidad posee una dotación de
+              equipos y personal calificado que le permite afrontar con firmeza y éxito obras en esta área. REIMCA se une al compromiso de construir desde ahora el Punto Fijo del Futuro, y proyecta ser la empresa líder en el mercado de la construcción llevando a cabo el desarrollo de proyectos y construcciones de alto nivel, basados en la solidez de nuestra experiencia y calidad de nuestros servicios, incrementando cada vez mas nuestro nivel de confiabilidad.
+
+%section#contact-us-services
+  = render "app/front/contacto_reimca"
+
+%footer#footer
+  = render "app/front/footer_reimca"

@@ -1,0 +1,77 @@
+!!!
+%html{:lang => "en"}
+	%head
+		= render 'app/layouts/head'
+
+%body
+	%header#main
+		.button-burger
+			#burguer.hamburger.hamburger--spin
+				.hamburger-box
+					.hamburger-inner
+		%nav#menu.menu
+			.frame-menu
+				%ul
+					%li
+						= link_to root_path do
+							%span.item-link inicio
+					%li
+						= link_to app_about_path + '#about-v'  do
+							%span.item-link nosotros
+					%li
+						= link_to root_path + '#service' do
+							%span.item-link productos y servicios
+					%li
+						= link_to app_tank_path do
+							%span.item-link tanques
+					%li
+						= link_to app_projects_path do
+							%span.item-link experiencia
+					%li
+						= link_to root_path  + '#customers' do
+							%span.item-link clientes
+					%li
+						= link_to app_projects_path + '#contact-us-services' do
+							%span.item-link contáctanos
+					%li
+						= link_to root_path + '#maps' do
+							%span.item-link ubícanos
+
+%section#cover-service
+	.box-logo-v
+		.box-logo
+			= image_tag 'img/logo.svg', id: 'logo'
+	.main
+		.box-burger
+
+%section#projects-v
+	.title
+		%span#title-projects
+			Proyectos
+			%span.point .
+		%p#description-projects Mantenemos como norte el cumplimiento de las actividades
+	.container-fluid.fix
+		.col-lg-12.fix
+			.box-filter
+				#button-project.button-o-r
+					%a#project-button.o-button.-grey.filter-button{"data-filter" => "all"}
+						%span.o-button_label Todos
+				#button-project.button-o-r
+					%a#project-button.o-button.-grey.-left.filter-button{"data-filter" => "metalmecanica"}
+						%span.o-button_label Metalmecánica
+				#button-project.button-o-r
+					%a#project-button.o-button.-grey.filter-button{"data-filter" => "civil"}
+						%span.o-button_label civil
+				#button-project.button-o-r
+					%a#project-button.o-button.-grey.-left.filter-button{"data-filter" => "electricidad"}
+						%span.o-button_label electricidad
+				-@type_projects.each do |type_project|
+					=link_to type_project.name,app_front_type_project_path(type_project.id), remote: true
+		= render 'app/front/type_project'
+		#type_project
+
+%section#contact-us-services
+	= render "app/front/contacto_reimca"
+
+%footer#footer
+	= render "app/front/footer_reimca"

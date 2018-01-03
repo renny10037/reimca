@@ -1,0 +1,72 @@
+!!!
+%html{:lang => "en"}
+  %head
+    = render 'app/layouts/head'
+
+%body
+  %header#main
+    .button-burger
+      #burguer.hamburger.hamburger--spin
+        .hamburger-box
+          .hamburger-inner
+    %nav#menu.menu
+      .frame-menu
+        %ul
+          %li
+            = link_to root_path do
+              %span.item-link inicio
+          %li
+            = link_to app_about_path + '#about-v'  do
+              %span.item-link nosotros
+          %li
+            = link_to root_path + '#service' do
+              %span.item-link productos y servicios
+          %li
+            = link_to app_tank_path do
+              %span.item-link tanques
+          %li
+            = link_to app_projects_path do
+              %span.item-link experiencia
+          %li
+            = link_to root_path  + '#customers' do
+              %span.item-link clientes
+          %li
+            = link_to app_projectdetails_path + '#contact-us-details' do
+              %span.item-link contáctanos
+          %li
+            = link_to root_path + '#maps' do
+              %span.item-link ubícanos
+
+%section#cover-service
+  #project-cover.box-cover
+    .mask-cover
+  .main
+    .box-burger
+
+%section#services-v
+  .container
+    .col-lg-6
+      .box-service-image
+        .box-image-service
+          = image_tag 'img/E-01.jpg', class: 'img-responsive'
+    .col-lg-6
+      .title
+        %span#title-project-details
+          Planta Compresora de Gas
+          %span.point .
+        %p#description-project-details Proyecto de Metalmecánica
+      #box-services-v-t
+        %p.information-services-v-t
+          Lorem ipsum dolor sit amet, consectetur adipisicing elit. Nostrum quod ad magnam nisi, ratione maxime amet architecto corporis cupiditate voluptates itaque deleniti totam natus praesentium, similique neque autem recusandae dolor?
+          Lorem ipsum dolor sit amet, consectetur adipisicing elit. Ratione saepe veniam, aperiam quibusdam possimus maxime qui architecto officia ad debitis itaque repudiandae praesentium delectus, facere animi eveniet aut enim. Fugit.
+        #box-button-card
+          #button-project-details.button-o-r
+            %a#project-button-details.o-button.-grey.filter-button{"data-filter" => "all", :href => "projects.html"}
+              %span.o-button_label ver más proyectos
+
+%section#contact-us-details
+  = render "app/front/contacto_reimca"
+
+%footer#footer
+  = render "app/front/footer_reimca"
+

@@ -1,0 +1,69 @@
+!!!
+%html{:lang => "en"}
+  %head
+    = render 'app/layouts/head'
+    
+%body
+  %header#main
+    .button-burger
+      #burguer.hamburger.hamburger--spin
+        .hamburger-box
+          .hamburger-inner
+    %nav#menu.menu
+      .frame-menu
+        %ul
+          %li
+            = link_to root_path do
+              %span.item-link inicio
+          %li
+            = link_to app_about_path  do
+              %span.item-link nosotros
+          %li
+            = link_to root_path + '#service' do
+              %span.item-link productos y servicios
+          %li
+            = link_to  app_tank_path  do
+              %span.item-link tanques
+          %li
+            = link_to app_projects_path do
+              %span.item-link experiencia
+          %li
+            = link_to root_path  + '#customers' do
+              %span.item-link clientes
+          %li
+            = link_to app_about_path + '#contact-us-about' do
+              %span.item-link contáctanos
+          %li
+            = link_to root_path + '#maps' do
+              %span.item-link ubícanos
+
+%section#cover-service
+  #about-cover.box-cover
+    .mask-cover
+      #title-service-v Nosotros
+  .main
+    .box-burger
+
+%section#about-v
+  .title
+    %span#title-about-v
+      REIMCA
+      %span.point .
+    %p#description-about-v Construyendo futuro
+  .container
+    .col-xs-12.col-sm-12.col-md-12.col-lg-12
+      #box-about-v
+        %p.information-about-v La historia de la empresa REIMCA es una historia de determinación, trabajo y éxitos, que comienza en Junio de 1994, en Falcón, Venezuela cuando el Ingeniero Carlos Medina tuvo la inquietud de establecerse para ofrecer Servicios de Ingeniería, Mantenimiento y Construcción en las Áreas Eléctrica, Metalmecánica,Civil e Instrumentación. Desde el principio, REIMCA, se impulsa bajo los principios de Calidad, Seguridad y Productividad abarcando todos los niveles, logrando de esta manera el éxito empresarial.
+        %p.information-about-v Al pasar los años, REIMCA se ha convertido en una firma con objetivos muy específicos, orientados a la búsqueda de la excelencia en la prestación de servicios, capacitación y entrenamiento del personal para hacerlo técnicamente calificado, esmero en el cumplimiento de políticas de Seguridad Industrial y la creación de políticas sociales dirigidas a la motivación de sus trabajadores; para hacerla capaz de evolucionar con las condiciones del mercado y adaptarse a los cambios del entorno.
+    .col-xs-12.col-sm-12.col-md-12.col-lg-12
+      .box-about-image
+        .box-image
+          %img{:src => "assets/img/01.jpeg"}/
+    
+
+%section#contact-us-about
+  = render "app/front/contacto_reimca"
+  
+%footer#footer
+  = render "app/front/footer_reimca"
+

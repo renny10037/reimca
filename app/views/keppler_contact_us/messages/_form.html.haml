@@ -1,0 +1,34 @@
+.contact-form
+	= render "app/layouts/messages"
+	= simple_form_for @message, :url => "/admin/messages", :method => :post do |f|
+		= f.hidden_field :subject, value: "test"
+		.col-xs-12.col-sm-12.col-md-12.col-lg-6.fix
+			.form
+				.form-group
+					%label#form-control{:for => "name"} Nombre (Requerido)
+					%input#name.form-control{:name => "message[name]", :required => "", :type => "text", :value => "", :tabindex => 1}/
+					-# = f.input :name, label: false, wrapper: :bootstrap, input_html: {class: "form-control", required: "required"}
+				.form-group
+					%label#form-control{:for => "phone"} Teléfono
+					%input#phone.form-control{:name => "message[phone]", :required => "", :type => "text", :value => "", :tabindex => 2}/
+		.col-xs-12.col-sm-12.col-md-12.col-lg-6.fix
+			.form
+				.form-group
+					%label#form-control{:for => "email"} Correo Electrónico (Requerido)
+					%input#email.form-control{:name => "message[email]", :required => "", :type => "email", :value => "", :tabindex => 3}/
+				.form-group
+					%label#form-control{:for => "company"} Empresa
+					%input#corporatiofn.form-control{:name => "message[company]", :required => "", :type => "email", :value => "", :tabindex => 4}/
+		.col-xs-12.col-sm-12.col-md-12.col-lg-12.fix
+			.form-b
+				.form-group
+					%label#form-control{:for => "content"} Mensaje (Requerido)
+					%textarea#message.form-control{:name => "message[content]", :required => "", :rows => "5", :value => "", :tabindex => 5}
+		.col-xs-12.col-sm-12.col-md-12.col-lg-12.fix
+			.form-group.fix-google
+				#box-submit-contact
+					#recaptcha{:tabindex => 6}
+						= raw recaptcha_tags :display => { :theme => 'custom'}
+					#button-contact.button-o-r{:tabindex => 7}
+						%button#contact-button.o-button.-white{:type => "submit"}
+							%span.o-button_label{:tabindex => 8} enviar

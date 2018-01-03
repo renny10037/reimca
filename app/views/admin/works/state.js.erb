@@ -1,0 +1,2 @@
+$('#state').html("<%= j( collection_select(:work,:stack_city_id, @cities, :id, :name, { prompt: "Seleccione una Ciudad"}, { class: "browser-default"}) )%>")
+
